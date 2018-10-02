@@ -1,4 +1,4 @@
-FROM php:7.2.8-fpm
+FROM php:7.1.9-fpm
 
 RUN DEBIAN_FRONTEND=noninteractive \
 
@@ -10,7 +10,7 @@ RUN DEBIAN_FRONTEND=noninteractive \
     && apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys E1DD270288B4E6030699E45FA1715D88E1DF1F24 \
     && echo 'deb http://ppa.launchpad.net/git-core/ppa/ubuntu trusty main' > /etc/apt/sources.list.d/git.list \
     && apt-get update \
-    && apt-get install -y git
+    && apt-get install -y git zip unzip
 
 #COPY ./conf/www.conf /usr/local/etc/php-fpm.d/
 #COPY ./conf/php.ini /usr/local/etc/php/
