@@ -22,3 +22,22 @@ services:
       - 80
     ports:
       - 80:80
+
+  mysql:
+    image: mysql:5.7.23
+    volumes:
+      - db-data:/var/lib/mysql
+    environment:
+       MYSQL_ROOT_PASSWORD: root
+       MYSQL_DATABASE: a_database
+       MYSQL_USER: a_database
+       MYSQL_PASSWORD: a_database
+
+  adminer:
+    image: adminer
+    ports:
+      - 8080:8080
+
+volumes:
+    db-data:
+      external: false
